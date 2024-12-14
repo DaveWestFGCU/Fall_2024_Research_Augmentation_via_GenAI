@@ -1,45 +1,78 @@
 dataset = \
 {
-    "EmoEvent (English)" : {
-        "id": "emoevent_en",
+    "EmoEvent (Tokenized)" : {
+        "id": "emoevent_en_tokenized",
         "source": "https://github.com/fmplaza/EmoEvent",
         "text_source": "tweet",
         "filetype": "tsv",
         "location": "local",
         "is_split": False,
         "label_format": "single",
-        "relpath": "./original_datasets/EmoEvent/en/emoevent_en.csv",
+        "relpath": "original_datasets/EmoEvent/tokenized/emoevent_en.tsv",
+        "abspath": "E:/Projects/Pycharm Projects/NLP_Augmentation_via_LLM/original_datasets/EmoEvent/tokenized/emoevent_en.tsv",
         "unused_columns": ["id", "offensive"],
-        "remap_columns": {"tweet": "text", "emotion":"label"},
+        "remap_columns": {"tweet": "text", "emotion":"labels"},
         "unlabeled_label": "others",
         "label_type": "emotion",
         "label_list": ["anger", "disgust", "fear", "joy", "sadness", "surprise"],
         "num_labelers": 3,
         "num_consensus": 2
     },
+
+    "EmoEvent (Raw)" : {
+        "id": "emoevent_en_raw",
+        "source": "https://github.com/fmplaza/EmoEvent",
+        "text_source": "tweet",
+        "filetype": "tsv",
+        "location": "local",
+        "is_split": False,
+        "label_format": "single",
+        "relpath": "./original_datasets/EmoEvent/raw/emoevent_raw.tsv",
+        "abspath": "E:/Projects/Pycharm Projects/NLP_Augmentation_via_LLM/original_datasets/EmoEvent/raw/emoevent_raw.tsv",
+        "unused_columns": ["id", "event", "offensive"],
+        "remap_columns": {"tweet":"text", "emotion":"labels"},
+        "unlabeled_label": "others",
+        "label_type": "emotion",
+        "label_list": ["anger", "disgust", "fear", "joy", "sadness", "surprise"],
+        "num_labelers": 3,
+        "num_consensus": 2
+    },
+
+    "enISEAR": {
+        "id": "enisear",
+        "source": "https://www.romanklinger.de/data-sets/",
+        "text_source": "sentence",
+        "filetype": "csv",
+        "location": "local",
+        "is_split": False,
+        "label_format": "single",
+        "relpath": "./original_datasets/enISEAR/enISEAR.csv",
+        "abspath": "E:/Projects/Pycharm Projects/NLP_Augmentation_via_LLM/original_datasets/enISEAR/enISEAR.csv",
+        "unused_columns": ["Sentence_id", "Temporal_Distance", "Intensity", "Duration", "Gender", "City", "Country", "Worker_id", "Time", "Anger", "Disgust", "Fear", "Guilt", "Joy", "Sadness", "Shame"],
+        "remap_columns": {"Sentence": "text", "Prior_Emotion": "labels"},
+        "unlabeled_label": None,
+        "label_type": "emotion",
+        "label_list": ["Anger", "Disgust", "Fear", "Guilt", "Joy", "Sadness", "Shame"],
+        "num_labelers": 3,
+        "num_consensus": 2
+    },
+
+    "StackOverflow": {
+        "id": "stackoverflow",
+        "source": "https://github.com/collab-uniba/EmotionDatasetMSR18",
+        "text_source": "Stack Overflow post",
+        "filetype": "csv",
+        "location": "local",
+        "is_split": False,
+        "label_format": "single",
+        "relpath": "./original_datasets/StackOverflow/StackOverflow.csv",
+        "abspath": "E:/Projects/Pycharm Projects/NLP_Augmentation_via_LLM/original_datasets/StackOverflow/StackOverflow.csv",
+        "unused_columns": ["Group", "Set", "Id", "Rater 1", "Rater 2", "Rater 3"],
+        "remap_columns": {"Text": "text", "Gold Label": "labels"},
+        "unlabeled_label": None,
+        "label_type": "emotion",
+        "label_list": ["ANGER", "FEAR", "JOY", "LOVE", "SADNESS", "SURPRISE"],
+        "num_labelers": 3,
+        "num_consensus": 2
+    },
 }
-#{
-#    "name": "EmoEvent (Spanish)",
-#    "source": "https://github.com/fmplaza/EmoEvent",
-#    "text_source": "tweet",
-#    "filetype": "tsv",
-#    "location": "local",
-#    "is_split": True,
-#    "label_type": "single",
-#    "unused_columns": ["id", "event", "offensive"],
-#    "remap_columns": {"tweet": "text", "emotion":"label"},
-#    "unlabeled_label": "others"
-#    #},
-#    #{
-#    "name": "GoEmotions",
-#    "source": "https://github.com/google-research/google-research/tree/master/goemotions",
-#    "filetype": "parquet",
-#    "location": "HuggingFace",
-#    "hf_name": "go_emotions",
-#    "hf_subset": "raw"
-#    #}
-#    #synthetic_dataset_name = 'synthetic_datasets.parquet'
-#synthetic_dataset_dir = 'synthetic_datasets/'
-#
-#
-#
